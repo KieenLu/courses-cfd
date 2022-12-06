@@ -1,0 +1,80 @@
+.nav {
+    position: absolute;
+    width: 320px;
+    height: 100vh;
+    top: var(--heightHeader);
+    left: 0;
+    bottom: 0;
+    background: #f4f7f6;
+    z-index: 91;
+    @include transform(translate(-100%, 0%));
+    @include transition-default;
+    ul {
+        height: 100%;
+        li {
+            @include transition-default;
+            a {
+                height: 100%;
+                @include midflex;
+                position: relative;
+                text-transform: capitalize;
+                font-family: ab;
+                white-space: nowrap;
+                padding: 20px 35px;
+                justify-content: flex-start;
+                border-bottom: 1px solid $gray-cl;
+                @include transition-default;
+                &:after {
+                    display: none;
+                }
+            }
+            &.li_login {
+                display: none;
+            }
+            &:hover {
+                background: $gray-cl;
+            }
+            .active {
+                background: $main-cl;
+                @include transition-default;
+                color: $white-cl;
+            }
+        }
+    }
+    @include mobile {
+        width: auto;
+        min-width: 230px;
+        overflow-y: scroll;
+        height: calc(100vh - 50px);
+        ul {
+            li {
+                &.li_login {
+                    display: flex;
+                    a {
+                        &:first-child {
+                            border-right: 1px solid $gray-cl;
+                        }
+                    }
+                }
+                a {
+                    padding: 16px 30px;
+                }
+            }
+        }
+    }
+}
+
+.overlay_nav {
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background: #000;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 90;
+    @include transition-default;
+}

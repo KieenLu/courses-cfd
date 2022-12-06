@@ -1,0 +1,27 @@
+/* Core variables and mixins*/
+@import "imports/core/reset";
+@import "imports/core/variables";
+@import "imports/core/mixins";
+@import "imports/core/layouts";
+@import "imports/core/bootstrap_mini";
+@import "imports/core/elements";
+@import "imports/core/libs";
+
+@import "imports/core/loading";
+
+/* Navigation, header, footer*/
+@import "imports/core/header";
+@import "imports/core/nav";
+@import "imports/core/footer";
+
+/* Pages*/
+@import "imports/pages/home";
+@import "imports/pages/profile";
+@import "imports/pages/course-detail";
+@import "imports/pages/register-course";
+@import "imports/pages/team";
+@import "imports/pages/projectpage";
+@import "imports/pages/paypage";
+@import "imports/pages/notfound";
+@import "imports/pages/faq";
+@import "imports/pages/auth";

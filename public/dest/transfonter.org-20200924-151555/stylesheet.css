@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'SVN-Avo';
+    src: url('SVN-Avobold.woff2') format('woff2'),
+        url('SVN-Avobold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Avo';
+    src: url('SVN-Avoitalic.woff2') format('woff2'),
+        url('SVN-Avoitalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Avo';
+    src: url('SVN-Avo.woff2') format('woff2'),
+        url('SVN-Avo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Avo';
+    src: url('SVN-Avobolditalic.woff2') format('woff2'),
+        url('SVN-Avobolditalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+

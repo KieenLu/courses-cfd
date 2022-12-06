@@ -1,0 +1,185 @@
+.auth {
+    .wrap {
+        margin: 0 auto;
+        max-width: 560px;
+        width: 100%;
+        background: $main-bg-cl;
+        padding: 50px 70px;
+        position: relative;
+
+        .title {
+            font-size: 22px;
+            font-family: ab;
+            line-height: 31px;
+            letter-spacing: 0em;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        input {
+            flex: 1;
+            height: $h_input;
+            font-size: 16px;
+            padding: 0 20px;
+            width: 100%;
+            margin-bottom: 15px;
+            outline: none;
+            border: 1px solid #dbe0df;
+            font-family: main;
+
+            &[disabled] {
+                cursor: no-drop;
+                background: #e8e8e8;
+            }
+
+            
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+
+            .forget {
+                white-space: nowrap;
+                color: $main-cl;
+                @include transition-default;
+
+                &:hover {
+                    opacity: 0.7;
+                    @include transition-default;
+                }
+            }
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .btn-remember {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+
+            input {
+                width: auto;
+                appearance: auto;
+                height: auto;
+                margin: 0 10px 5px 0;
+                position: relative;
+                bottom: -1px;
+            }
+
+            p {
+                flex: 1;
+                font-style: normal;
+                line-height: 20px;
+                user-select: none;
+            }
+        }
+
+        .btn-google {
+            background: #fff;
+            text-transform: capitalize;
+            width: 100%;
+            color: $text-cl;
+            @include transition-default;
+
+            img {
+                width: 20px;
+                margin: 0 10px 0 0;
+            }
+
+            &:hover {
+                background: $main2-bg-cl;
+                @include transition-default;
+            }
+        }
+
+        .btn-login {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .text-register {
+            margin: 30px 0 15px 0;
+        }
+
+        .policy {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 15px;
+
+            a {
+                color: $main-cl;
+            }
+        }
+
+        .back {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 14px;
+            top: 12px;
+            cursor: pointer;
+            background: url(../img/arrow-prev.svg) no-repeat center;
+            background-size: 20px;
+            @include transition-default;
+
+            &:hover {
+                opacity: 0.4;
+                @include transition-default;
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            padding: 20px;
+            @include transition-default;
+
+            &:hover {
+                opacity: 0.4;
+                @include transition-default;
+            }
+        }
+
+        .ct_email {
+            input {
+                margin-bottom: 0;
+            }
+
+            .btn {
+                margin-top: 25px;
+            }
+        }
+    }
+
+    // .popup-form {
+    //     z-index: 1000;
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     background: rgba(0, 0, 0, 0.9);
+    //     padding: 15px;
+
+
+
+    //     @include mobile {
+    //         .wrap {
+    //             width: 100%;
+    //             padding: 40px 15px;
+    //         }
+    //     }
+    // }
+}

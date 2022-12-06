@@ -1,0 +1,80 @@
+.jarallax {
+    position: relative;
+    z-index: 0;
+}
+.jarallax > .jarallax-img {
+    position: absolute;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.flickity-enabled {
+    position: relative;
+}
+
+.flickity-enabled:focus {
+    outline: none;
+}
+
+.flickity-viewport {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.flickity-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+    transition: opacity 0.4s;
+    -webkit-transition: opacity 0.4s;
+}
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 0.4s;
+    -webkit-transition: opacity 0.4s;
+}
+
+.carousel-cell {
+    .flickity-lazyload {
+        opacity: 0;
+        transition: opacity 0.3s;
+        -webkit-transition: opacity 0.3s;
+        &.flickity-lazyloaded {
+            opacity: 1;
+            transition: opacity 0.3s;
+            -webkit-transition: opacity 0.3s;
+        }
+    }
+}

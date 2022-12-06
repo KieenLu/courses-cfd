@@ -1,0 +1,113 @@
+.team {
+    section {
+        padding: var(--paddingSection) 0;
+    }
+    .top {
+        text-align: center;
+        max-width: 790px;
+        margin: 0 auto;
+        .main-title {
+            margin-bottom: 15px;
+        }
+    }
+
+    .list {
+        margin-top: 80px;
+
+        .item {
+            margin-bottom: 30px;
+            // cursor: pointer;
+            .wrap {
+                height: 100%;
+                background: #000;
+            }
+            .cover {
+                display: flex;
+                position: relative;
+                .text {
+                    @include mid;
+                    font-size: 60px;
+                    line-height: normal;
+                    font-family: ab;
+                    color: $main-cl;
+                    margin-top: -1px;
+                    @include tablet {
+                        font-size: 60px;
+                    }
+                }
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    @include transition-default;
+                }
+                &:hover {
+                    img {
+                        @include transition-default;
+                    }
+                }
+            }
+
+            .info {
+                padding: 30px;
+            }
+
+            .name {
+                font-size: 22px;
+                font-style: normal;
+                font-family: ab;
+                margin-bottom: 6px;
+                color: #fff;
+            }
+
+            .title,
+            .website a {
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 400;
+                text-align: left;
+                opacity: 0.5;
+                color: #fff;
+            }
+
+            &.col-md-3 {
+                .info {
+                    padding: 20px;
+                }
+                .name {
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-bottom: 5px;
+                }
+
+                .title {
+                    line-height: 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+        @include mobile {
+            margin-top: 60px;
+            .item {
+                .cover {
+                    .text {
+                        font-size: 90px;
+                    }
+                }
+                &.col-md-3 {
+                    width: 50%;
+                    margin-bottom: 15px;
+                    .info {
+                        padding: 15px;
+                    }
+                    &:nth-child(odd) {
+                        padding-right: 7.5px;
+                    }
+                    &:nth-child(even) {
+                        padding-left: 7.5px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.paypage {
+    .container {
+        max-width: 790px;
+        margin: 0 auto;
+    }
+    section {
+        padding: var(--paddingSection) 0;
+    }
+    .content {
+        font-size: $fz-text;
+        line-height: 28px;
+        font-style: normal;
+        text-align: left;
+        margin-top: 50px;
+        h2 {
+            font-size: $fz-text;
+            font-family: ab;
+            text-transform: uppercase;
+            &:after {
+                content: "";
+                display: block;
+                width: 60px;
+                height: 2px;
+                background: black;
+                margin-top: 15px;
+                margin-bottom: 30px;
+            }
+        }
+
+        p {
+            margin-bottom: 14px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 50px;
+        }
+    }
+
+    @include mobile {
+        .content {
+            .section {
+                padding: 25px;
+            }
+        }
+    }
+}

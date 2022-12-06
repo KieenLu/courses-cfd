@@ -1,0 +1,337 @@
+#header {
+	width: 100%;
+	max-width: $max-width;
+	background: $main-bg-cl;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	@include transform(translateX(-50%));
+	-webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.08);
+	box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.08);
+	z-index: 100;
+	.wrap {
+		background: white;
+		max-width: $max-width;
+		margin: 0 auto;
+		height: var(--heightHeader);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		.menu-hambeger {
+			height: 100%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			border-right: 1px solid $gray-cl;
+			padding: 0 15px;
+			@include transition-default;
+			.button {
+				width: 26px;
+				height: 15px;
+				position: relative;
+				margin-right: 10px;
+				span {
+					width: 100%;
+					height: 2px;
+					background: black;
+					border-radius: 10px;
+					display: block;
+					position: absolute;
+					right: 0;
+					@include transition-default;
+					&:nth-child(1) {
+						top: 0px;
+					}
+					&:nth-child(2) {
+						top: 6px;
+					}
+					&:nth-child(3) {
+						right: 0;
+						top: 12px;
+					}
+					&:not(:last-child) {
+						margin-bottom: 6px;
+					}
+				}
+			}
+			.text {
+				font-size: $fz-text-up;
+				text-transform: uppercase;
+				position: relative;
+				top: -1px;
+				position: relative;
+			}
+			&:hover {
+				background: $gray-cl;
+				@include transition-default;
+			}
+		}
+		.logo {
+			position: absolute;
+			left: 50%;
+			@include transform(translateX(-50%));
+			img {
+				height: 50px;
+			}
+			h1 {
+				display: none;
+			}
+		}
+
+		.right {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			padding: 0 15px;
+			.have-login {
+				position: relative;
+				display: flex;
+				align-items: center;
+				height: 100%;
+				.account {
+					display: flex;
+					align-items: center;
+					.info {
+						display: flex;
+						align-items: center;
+
+						.name {
+							width: 180px;
+							text-transform: uppercase;
+							margin-right: 14px;
+							text-align: right;
+							white-space: nowrap;
+							font-size: $fz-text-up;
+							@include overtext(1);
+						}
+						.avatar {
+							border-radius: 100px;
+							display: flex;
+							width: 40px;
+							height: 40px;
+							overflow: hidden;
+							position: relative;
+							.text {
+								@include mid;
+								margin-top: -2px;
+								font-size: 20px;
+								line-height: normal;
+								font-family: ab;
+								color: $main-cl;
+								z-index: 20;
+							}
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+					}
+				}
+
+				.hamberger {
+					margin-left: 8px;
+					cursor: pointer;
+					width: 14px;
+					height: 12px;
+					background: url("../img/down-arrow.svg") no-repeat center;
+				}
+
+				.sub {
+					background: #fff;
+					position: absolute;
+					display: none;
+					right: 0;
+					top: 100%;
+					min-width: 200px;
+					-webkit-box-shadow: 4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+					-moz-box-shadow: 4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+					box-shadow: 4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+
+					a {
+						display: block;
+						padding: 20px;
+						white-space: nowrap;
+						text-align: right;
+						border-bottom: 1px solid #e7e7e7;
+						font-family: ab;
+						@include transition-default;
+
+						&:hover {
+							background: $gray-cl;
+						}
+					}
+				}
+
+				&:hover {
+					.sub {
+						display: block;
+					}
+				}
+			}
+			.not-login {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				margin-right: -15px;
+				.btn-register {
+					height: 100%;
+					padding: 0 22px;
+					text-transform: uppercase;
+					font-size: $fz-text-up;
+					@include midflex;
+					@include transition-default;
+					&:hover {
+						opacity: 0.5;
+						@include transition-default;
+					}
+				}
+				.btn {
+					height: 100%;
+					display: flex;
+					align-items: center;
+					padding: 0 22px;
+					@include transition-default;
+				}
+			}
+		}
+	}
+	// &.style2 {
+	// 	box-shadow: none;
+	// 	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+	// 	.wrap {
+	// 		.menu-hambeger {
+	// 			.button {
+	// 				span {
+	// 					background: #fff;
+	// 				}
+	// 			}
+	// 			.text {
+	// 				color: #fff;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	@media (max-width: 1300px) {
+		.wrap {
+			.right {
+				.have-login {
+					.account {
+						.info {
+							.name {
+								width: 170px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@include desktop {
+		.wrap {
+			.menu-mobile-hambeger {
+				display: block;
+			}
+			.logo {
+				@include mid;
+			}
+		}
+
+		&.active {
+			.wrap {
+				.menu-mobile-hambeger {
+					.button {
+						span {
+							&:nth-child(1) {
+								@include transform(rotateZ(45deg) translate(6px, 6px));
+							}
+							&:nth-child(4) {
+								@include transform(rotateZ(-45deg) translate(6px, -6px));
+							}
+							&:nth-child(2),
+							&:nth-child(3) {
+								opacity: 0;
+							}
+						}
+					}
+				}
+				nav {
+					@include transform(translate(0, 0));
+
+					&:after {
+						opacity: 1;
+						pointer-events: unset;
+						@include transition-delay(0.3s);
+					}
+				}
+			}
+		}
+	}
+	@include tablet {
+		.wrap {
+			.right {
+				.not-login {
+					.btn-register,
+					.btn {
+						padding: 0 15px;
+					}
+				}
+			}
+		}
+	}
+	@include mobile {
+		.wrap {
+			.menu-hambeger {
+				.button {
+					margin-right: 0;
+				}
+				.text {
+					display: none;
+				}
+			}
+			nav {
+				ul {
+					li {
+						&.li_login {
+							display: block;
+							background: $gray-cl;
+						}
+					}
+				}
+			}
+			.logo {
+				img {
+					width: 70px;
+				}
+			}
+			.right {
+				.have-login {
+					.sub {
+						a {
+							padding: 15px;
+						}
+					}
+					.hamberger {
+						margin-left: 6px;
+					}
+					.account {
+						.info {
+							.avatar {
+								width: 36px;
+								height: 36px;
+							}
+							.name {
+								display: none;
+							}
+						}
+					}
+				}
+				.not-login {
+					display: none;
+				}
+			}
+		}
+	}
+}

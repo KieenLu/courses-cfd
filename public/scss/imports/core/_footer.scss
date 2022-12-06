@@ -1,0 +1,174 @@
+#footer {
+	background: white;
+	overflow: hidden;
+
+	.container {
+		position: relative;
+	}
+
+	.row {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	.left {
+		.des {
+			font-size: 17px;
+			font-style: normal;
+			line-height: 28px;
+			font-family: ab;
+			padding-right: 20px;
+		}
+
+		.address {
+			font-size: 14px;
+			line-height: 168.09%;
+			margin-top: 45px;
+		}
+
+		.phone {
+			font-size: 14px;
+			line-height: 168.09%;
+		}
+
+		.social {
+			display: flex;
+			margin-top: 20px;
+
+			a {
+				margin-right: 20px;
+				height: 30px;
+				
+			}
+
+			.fb {
+				width: 12px;
+
+				-webkit-mask: url("../img/icon-fb.svg") no-repeat left center;
+				mask: url("../img/icon-fb.svg") no-repeat left center;
+				@include transition-default;
+				&:hover {
+					background-color: #4064ac;
+					@include transition-default;
+				}
+			}
+			.gmail {
+				width: 26px;
+
+				-webkit-mask: url("../img/icon-gmail.svg") no-repeat left center;
+				mask: url("../img/icon-gmail.svg") no-repeat left center;
+				@include transition-default;
+				&:hover {
+					background-color: $main-cl;
+					@include transition-default;
+				}
+			}
+			.skype {
+				width: 22px;
+
+				-webkit-mask: url("../img/icon-skype.svg") no-repeat left center;
+				mask: url("../img/icon-skype.svg") no-repeat left center;
+				@include transition-default;
+				&:hover {
+					background-color: #50abe9;
+					@include transition-default;
+				}
+			}
+		}
+	}
+
+	.right {
+		margin-left: auto;
+		padding-right: 20px;
+		nav {
+			margin-right: 20px;
+			ul {
+				display: flex;
+				justify-content: flex-end;
+				li {
+					a {
+						margin: 0 5px;
+						padding-right: 13px;
+						white-space: nowrap;
+						display: inline-flex;
+						@include transition-default;
+						&:hover {
+							opacity: 0.5;
+							@include transition-default;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.back-to-top {
+		position: absolute;
+		right: -100px;
+		display: flex;
+		align-items: center;
+		@include transform(rotateZ(90deg));
+		cursor: pointer;
+		top: 175px;
+		letter-spacing: 3px;
+		font-size: 10px;
+
+		.line {
+			width: 150px;
+			height: 1px;
+			background: black;
+			margin-right: 10px;
+		}
+	}
+
+	.copy-right {
+		border-top: 1px solid #e6eaea;
+
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 15px;
+			color: #7e7e7e;
+			font-size: 14px;
+
+			p {
+				line-height: 25px;
+			}
+		}
+	}
+
+	@include mobile {
+		.left {
+			padding-right: 30px;
+		}
+		.right {
+			width: 100%;
+			margin: 20px auto 0 auto;
+			padding: 0 15px;
+			nav {
+				ul {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					li {
+						a {
+							padding: 10px 0;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+
+		.copy-right {
+			.container {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				flex-direction: column;
+				p {
+					text-align: center;
+				}
+			}
+		}
+	}
+}

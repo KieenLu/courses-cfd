@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "ab";
+  src: url("../fonts/SVN-Avobold.woff2") format("woff2"), url("../fonts/SVN-Avobold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Main";
+  src: url("../fonts/SVN-Avoitalic.woff2") format("woff2"), url("../fonts/SVN-Avoitalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "main";
+  src: url("../fonts/SVN-Avo.woff2") format("woff2"), url("../fonts/SVN-Avo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Main";
+  src: url("../fonts/SVN-Avobolditalic.woff2") format("woff2"), url("../fonts/SVN-Avobolditalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: fallback;
+}

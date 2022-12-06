@@ -1,0 +1,400 @@
+.course-detail {
+    .banner {
+        height: 680px;
+        background: $main-cl;
+        position: relative;
+        .container {
+            height: 100%;
+            position: relative;
+        }
+        .info {
+            min-width: 700px;
+            @include midflex;
+            flex-direction: column;
+            margin-top: -20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 15px;
+            @include mid;
+            h1 {
+                font-weight: bold;
+                font-size: 50px;
+                line-height: 64px;
+                font-family: ab;
+                color: white;
+                text-align: center;
+                text-transform: capitalize;
+                margin-bottom: 8px;
+            }
+            .row {
+                margin: 0;
+                color: white;
+                display: flex;
+                justify-content: space-around;
+
+                > * {
+                    padding: 0 20px;
+                    margin-top: 15px;
+                }
+            }
+            p {
+                color: red;
+                margin-top: 15px;
+            }
+            .btn {
+                margin-top: 40px;
+                border: 1px solid var(--color-btn);
+                background: var(--color-btn);
+                &:hover {
+                    border: 1px solid $black-cl;
+                    background: $black-cl;
+                    color: $white-cl;
+                }
+            }
+        }
+        .bottom {
+            width: 100%;
+            color: white;
+            position: absolute;
+            bottom: 30px;
+            .container {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .video {
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 16px;
+                font-family: ab;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding-right: 10px;
+                @include transition-default;
+                span {
+                    flex: 1;
+                    line-height: 20px;
+                }
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 45px;
+                    height: 45px;
+                    border: 1px solid white;
+                    border-radius: 100%;
+                    margin-right: 15px;
+
+                    img {
+                        padding-left: 7px;
+                    }
+                }
+                &:hover {
+                    opacity: 0.6;
+                    @include transition-default;
+                }
+            }
+
+            .money {
+                font-size: 18px;
+                font-family: ab;
+                del {
+                    font-size: 16px;
+                }
+            }
+        }
+        &.style2 {
+            background: var(--background);
+            .info {
+                h1,
+                .row {
+                    color: $text-cl;
+                }
+            }
+            .bottom {
+                color: $text-cl;
+            }
+        }
+        @include maxH(800px) {
+            height: calc(100vh - var(--heightHeader));
+        }
+        @include desktop {
+            height: 500px;
+            .info {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+        @include tablet {
+            padding-top: 0px;
+            .info {
+                max-width: 500px;
+                h1 {
+                    font-size: 46px;
+                    line-height: normal;
+                }
+            }
+        }
+        @include mobile {
+            height: 460px;
+            .info {
+                min-width: initial;
+                h1 {
+                    font-size: 32px;
+                    line-height: 46px;
+                }
+                .row > * {
+                    margin-top: 10px;
+                }
+                .btn {
+                    margin-top: 30px;
+                }
+            }
+            .bottom {
+                .money {
+                    white-space: nowrap;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .section-2 {
+        padding: calc(var(--paddingSection) - 30px) 0;
+
+        .container {
+            max-width: 789px;
+        }
+
+        .des {
+            font-size: 24px;
+            line-height: 44px;
+        }
+
+        .title {
+            font-family: ab;
+            text-transform: uppercase;
+            padding-bottom: 22px;
+            margin-bottom: 25px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid $gray-cl;
+            .sub {
+                font-family: main;
+                text-transform: none;
+                font-style: italic;
+            }
+        }
+
+        .cover {
+            img {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        .date-start {
+            white-space: nowrap;
+            padding-right: 10px;
+        }
+
+        .row-check {
+            > * {
+                padding-left: 50px;
+                position: relative;
+                margin-bottom: 40px;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 24px;
+                    height: 20px;
+                    background: url("../img/check-green.png") no-repeat;
+                    position: absolute;
+                    left: 15px;
+                    top: 2px;
+                    background-size: contain;
+                }
+            }
+        }
+
+        .teacher {
+            display: flex;
+            padding: 10px 0 0px 0;
+            .avatar {
+                width: 175px;
+                height: 175px;
+                margin-right: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100%;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .info {
+                flex: 1;
+                .name {
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 34px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    display: block;
+                    font-family: ab;
+                }
+
+                .title {
+                    font-family: main;
+                    font-style: normal;
+                    text-align: left;
+                    margin: 0 0 20px 0;
+                    border: none;
+                    padding: 0;
+                    display: block;
+                    text-transform: unset;
+                    margin-top: 5px;
+                }
+
+                p {
+                    font-style: normal;
+                    text-align: left;
+                    margin-bottom: 18px;
+                    line-height: 28px;
+                }
+                .website {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .mentors {
+            .teacher {
+                margin-bottom: 30px;
+            }
+        }
+
+        .bottom {
+            display: flex;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            .user {
+                min-width: 225px;
+                display: flex;
+                font-size: 16px;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: 0em;
+                text-align: left;
+                padding-right: 15px;
+                align-items: center;
+                img {
+                    margin-right: 12px;
+                    margin-left: 0;
+                }
+            }
+
+            .btn-share {
+                width: 48px;
+                height: 48px;
+                padding: 0;
+                margin-left: auto;
+                @include midflex;
+                margin-top: 10px;
+                img {
+                    width: 20px;
+                }
+            }
+
+            .btn-register {
+                margin-top: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        @include mobile {
+            p {
+                font-size: 15px;
+            }
+
+            .des {
+                font-size: 18px;
+                line-height: 34px;
+            }
+            .title {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            .row-check {
+                > * {
+                    font-size: 15px;
+                    margin-bottom: 20px;
+
+                    &:before {
+                        width: 18px;
+                        top: 4px;
+                    }
+                }
+            }
+
+            .teacher {
+                flex-direction: column;
+                align-items: center;
+
+                .avatar {
+                    margin-right: 0;
+                }
+
+                .info {
+                    margin-top: 20px;
+
+                    .name {
+                        text-align: center;
+                        font-size: 22px;
+                    }
+
+                    .title {
+                        text-align: center;
+                        font-size: 15px;
+                    }
+
+                    .intro {
+                        font-size: 15px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                    }
+                }
+            }
+            .bottom {
+                .user {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    .section-3 {
+        padding: 0 0 var(--paddingSection) 0;
+    }
+
+    .section-4 {
+        background: $main2-bg-cl;
+        padding: var(--paddingSection) 0;
+    }
+}

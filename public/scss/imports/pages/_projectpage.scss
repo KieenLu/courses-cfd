@@ -1,0 +1,84 @@
+.projectpage {
+    .section-1 {
+        padding: var(--paddingSection) 0;
+        .bottom {
+            text-align: center;
+            margin-top: 50px;
+            .btn-more {
+                margin: 0 auto;
+            }
+        }
+        .list {
+            margin-top: 80px;
+
+            .item {
+                margin-bottom: 30px;
+                .wrap {
+                    background: black;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .cover {
+                        @include midflex;
+                        position: relative;
+                        overflow: hidden;
+                        img {
+                            min-width: 100%;
+                            min-height: 100%;
+                            object-fit: cover;
+                            @include transform(scale(1));
+                            @include transition-default;
+                        }
+                        &::before {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            @include mid;
+                            background: #000;
+                            z-index: 10;
+                            opacity: 0;
+                            @include transition-default;
+                        }
+                        &:hover {
+                            &:before {
+                                opacity: 0.3;
+                                @include transition-default;
+                            }
+                            img {
+                                @include transform(scale(1.04));
+                                @include transition-default;
+                            }
+                        }
+                    }
+                    .info {
+                        padding: 20px;
+                        .name {
+                            font-size: 20px;
+                            line-height: 28px;
+                            font-family: ab;
+                            text-align: left;
+                            color: white;
+                            text-transform: uppercase;
+                            margin-bottom: 5px;
+                            @include transition-default;
+                            &:hover {
+                                opacity: 0.7;
+                                @include transition-default;
+                            }
+                        }
+                        .makeby {
+                            font-size: $fz-text;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 26px;
+                            text-align: left;
+                            color: #fff;
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

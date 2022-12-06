@@ -1,0 +1,53 @@
+/*primary colors*/
+$white-cl: #fff;
+$main-cl: #00afab;
+$main-dark-cl: #00827f;
+$black-cl: #111;
+$gray-cl: #e0e0e0;
+
+$yellow-cl: #bea67c;
+
+/*global text color*/
+$text-cl: #222;
+
+/*global bg color*/
+$main-bg-cl: #f4f7f6;
+$main2-bg-cl: #ededed;
+// time transition
+$t: 0.4s;
+$cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
+
+/*font families*/
+$font-stack: "Open Sans", sans-serif;
+
+/*headings typo*/
+$fz-text: 16px;
+$lh-text: normal;
+
+$fz-text-up: 14px;
+
+$fz-text-s: 15px;
+
+$fz-text-m: 16px;
+$lh-text-m: normal;
+
+/*GRID - media queries breakpoints*/
+$xxs-min: 568px;
+$xs-min: 768px;
+$sm-min: 992px;
+$md-min: 1200px;
+$lg-min: 1600px;
+
+$xxs-max: ($xxs-min - 1);
+$xs-max: ($xs-min - 1);
+$sm-max: ($sm-min - 1);
+$md-max: ($md-min - 1);
+$lg-max: ($lg-min - 1);
+
+/*BOXED LAYOUT*/
+$max-width: 1920px;
+$container-max-width: $max-width;
+$container-width: 1070px;
+
+$h_header: 70px;
+$h_input: 58px;

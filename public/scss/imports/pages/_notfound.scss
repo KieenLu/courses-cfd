@@ -1,0 +1,23 @@
+.notfound {
+    section {
+        min-height: calc(100vh - var(--heightHeader) - 350px);
+        text-align: center;
+        .main-title {
+            font-size: 80px;
+            margin-bottom: 0;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        @include mobile {
+            .main-title {
+                font-size: 60px;
+            }
+            p {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

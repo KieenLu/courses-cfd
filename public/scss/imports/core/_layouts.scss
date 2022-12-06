@@ -1,0 +1,102 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+html {
+    background: #fff !important;
+}
+html,
+body {
+    width: 100%;
+    max-width: $max-width;
+    -webkit-font-smoothing: antialiased;
+    margin: auto;
+    font-family: Main, Arial;
+    font-size: $fz-text;
+    overflow-x: hidden;
+    line-height: 26px;
+    background: $main-bg-cl;
+    position: relative;
+    @include custom-scrollbar();
+    --paddingSection: 90px;
+    --heightHeader: 70px;
+    --paddingTopMain: 50px;
+    .mainwrapper {
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    #main {
+        padding-top: var(--heightHeader);
+        @include transform(translate(0%, 0%));
+        @include transition-default;
+        &.menu-show {
+            @include transform(translate(100px, 0));
+        }
+    }
+    footer {
+        @include transform(translate(0%, 0%));
+        @include transition-default;
+    }
+    section {
+        padding: 66px 0 var(--paddingSection) 0;
+        position: relative;
+    }
+    @include maxH(800px) {
+        --heightHeader: 60px;
+    }
+    @include tablet {
+        --heightHeader: 60px;
+    }
+    @include mobile {
+        --paddingSection: 60px;
+        --paddingTopMain: 54px;
+        --heightHeader: 54px;
+    }
+
+    &.menu-is-show {
+        height: 100vh;
+        overflow: hidden;
+        #header {
+            .wrap {
+                .menu-hambeger {
+                    .button {
+                        span {
+                            &:nth-child(1) {
+                                @include transform(rotateZ(45deg) translate(4px, 3px));
+                            }
+                            &:nth-child(2) {
+                                opacity: 0;
+                                @include transform(scale(0));
+                            }
+                            &:nth-child(3) {
+                                @include transform(rotateZ(-45deg) translate(5px, -5px));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #main,
+        footer {
+            @include transform(translate(10%, 0%));
+            @include transition-default;
+        }
+        .nav {
+            @include transform(translate(0%, 0%));
+            @include transition-default;
+        }
+        .overlay_nav {
+            opacity: 0.85;
+            visibility: visible;
+            @include transition-default;
+        }
+    }
+}

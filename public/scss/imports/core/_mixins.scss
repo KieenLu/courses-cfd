@@ -1,0 +1,207 @@
+// MIXINS
+@mixin desktop-large {
+	@media (max-width: $lg-max) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (max-width: $md-max) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (max-width: $sm-max) and (min-height: 500px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media screen and (min-width: 320px) and (max-width: $xs-max) {
+		@content;
+	}
+}
+
+@mixin mobile-xxs {
+	@media (max-width: $xxs-max) {
+		@content;
+	}
+}
+
+@mixin maxW($args) {
+	@media (max-width: $args) {
+		@content;
+	}
+}
+
+@mixin minW($args) {
+	@media (min-width: $args) {
+		@content;
+	}
+}
+
+@mixin minH($args) {
+	@media (min-height: $args) {
+		@content;
+	}
+}
+
+@mixin maxH($args) {
+	@media (max-height: $args) {
+		@content;
+	}
+}
+
+@mixin desktop_lc {
+	@media screen and (min-width: $sm-min) and (max-width: $md-max) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin tablet_lc {
+	@media screen and (min-width: $xs-min) and (max-width: $sm-max) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin mobile_lc {
+	@media screen and (max-width: $xs-max) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin br($radius) {
+	border-radius: $radius;
+	background-clip: padding-box; /* stops bg color from leaking outside the border: */
+}
+
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+	@-moz-keyframes #{$animation-name} {
+		@content;
+	}
+	@-ms-keyframes #{$animation-name} {
+		@content;
+	}
+	@-o-keyframes #{$animation-name} {
+		@content;
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+@mixin animation($str) {
+	-webkit-animation: #{$str};
+	-moz-animation: #{$str};
+	-ms-animation: #{$str};
+	-o-animation: #{$str};
+	animation: #{$str};
+}
+@mixin animation-delay($str) {
+	-webkit-animation-delay: #{$str};
+	-moz-animation-delay: #{$str};
+	-ms-animation-delay: #{$str};
+	-o-animation-delay: #{$str};
+	animation-delay: #{$str};
+}
+
+@mixin transform($args) {
+	transform: $args;
+	-webkit-transform: $args;
+	-o-transform: $args;
+}
+
+@mixin transform-origin($args) {
+	transform-origin: $args;
+	-webkit-transform-origin: $args;
+	-o-transform-origin: $args;
+}
+@mixin transition-delay($args) {
+	transition-delay: $args;
+	-webkit-transition-delay: $args;
+	-o-transition-delay: $args;
+}
+
+@mixin transition($args) {
+	transition: $args;
+	-webkit-transition: $args;
+	-o-transition: $args;
+}
+@mixin text($font-size, $font-family, $line-height, $color, $text-transform) {
+	font-size: $font-size;
+	font-family: $font-family;
+	line-height: $line-height;
+	color: $color;
+	text-transform: $text-transform;
+}
+
+@mixin mid() {
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
+	position: absolute;
+}
+
+@mixin midflex() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin fullpage() {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+@mixin full-fixed() {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+@mixin hidden() {
+	opacity: 0;
+	visibility: hidden;
+}
+@mixin visible() {
+	opacity: 1;
+	visibility: visible;
+}
+
+@mixin overtext($args) {
+	text-overflow: ellipsis;
+	display: -webkit-inline-box;
+	-webkit-line-clamp: $args;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+@mixin custom-scrollbar {
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+	&::-webkit-scrollbar-track {
+		background: #fff;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #b2b2b2;
+		border-radius: 50px;
+	}
+}
+
+@mixin transition-default() {
+	@include transition(all 0.4s);
+}
+
+@mixin fullpage() {
+	@media (max-width: 1439.9px) and (max-height: 700px) {
+		height: calc(100vh - 70px);
+	}
+}
