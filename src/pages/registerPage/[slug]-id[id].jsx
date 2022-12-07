@@ -9,13 +9,14 @@ import { courseService } from "../../services/course";
 import { useScrollTop } from "../../hooks/useScrollTop";
 import { PATH } from "../../config/path";
 import { currency } from "../utils/currency";
+import { useQuery } from "../../hooks/useQuery";
 
 export default function RegisterPage() {
   const { id } = useParams();
-  const [detail, setDetail] = useState(() => {
-    return courseService.getCourseDetail(id);
-  });
-  useScrollTop();
+
+const {data, loading} = useQuery(() => courseService.getCourseDetail(id)) 
+
+  useScrollTop([id]);
 
   const { validate, register, values } = useForm({
     name: [required("")],
@@ -42,7 +43,8 @@ export default function RegisterPage() {
       console.log("Validate that bai ");
     }
   };
-
+  if (loading) return null
+let {data: detail} = data
   return (
     <main className="register-course" id="main">
       {isSuccess ? (

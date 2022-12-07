@@ -1,8 +1,6 @@
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { PATH } from "../../config/path";
-import { courseService } from "../../services/course";
-import { useState } from "react";
 import Skeleton from "../Skeleton";
 export default function CourseCard({
   money,
@@ -13,14 +11,9 @@ export default function CourseCard({
   slug,
   id,
 }) {
-  const path = generatePath(PATH.coursedetail, { slug, id });
-  const [detail, setDetail] = useState(() => {
-    return courseService.getCourseDetail(id);
-  });
-  const registerPath = generatePath(PATH.courseregister, {
-    slug: detail.slug,
-    id: detail.id,
-  });
+  const path = generatePath(PATH.coursedetail, { slug: slug,id: id });
+ 
+  const registerPath = generatePath(PATH.courseregister, {slug, id});
   return (
     <div className="col-md-4 course">
       <div className="wrap">

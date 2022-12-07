@@ -21,13 +21,13 @@ export default function ContactPage() {
     website: [regexp("website", "Xin vui lòng nhập đúng định dạng website")],
   });
   const onSubmit =  async(ev) => {
+    ev.preventDefault()
    try{
     if (validate()) {
-      
+      setLoading(true)
       const res = await organizationService.contact(values)
-      if(res.data.success){
+      if(res.data.success){ 
         reset()
-        setLoading(true)
         console.log("thanh cong")
         setIsSuccess(true)
       }
@@ -36,8 +36,9 @@ export default function ContactPage() {
     }
    } catch(err){
 
-   }finally{
-    setLoading(false)
+   }
+   finally{
+setLoading(false)
    }
   };
 
@@ -54,10 +55,8 @@ export default function ContactPage() {
     onClick={(ev) => {
       ev.preventDefault()
       setIsSuccess(true)
-      
     }}>
-      Tiếp tục liên hệ</a></div></> :
-       <>
+      Tiếp tục liên hệ</a></div></> : <>
     {/* <div class="main-sub-title">liên hệ</div> */}
     <h2 className="main-title">HỢP TÁC CÙNG Spacedev</h2>
         <p className="top-des">
@@ -65,7 +64,7 @@ export default function ContactPage() {
           ra những sản phẩm giá trị, cũng như việc hợp tác với các đối tác tuyển
           dụng và công ty trong và ngoài nước.
         </p>
-        <div className="form" onSubmit={onSubmit}>
+        <form className="form"  onSubmit={onSubmit}>
           <Field
             label="Họ và tên"
             placeholder="Họ và tên"
@@ -103,10 +102,12 @@ export default function ContactPage() {
             {...register("content")}
             renderInput={(props) => <textarea {...props} cols={30} rows={10} />}
           ></Field>
-          <Button loading={loading} >Đăng ký</Button>
-        </div>
-        </>
+          <Button loading={loading}>
+            đăng ký
+          </Button>
+        </form></>
 }
+      
       </section>
       {/* <div class="register-success">
             <div class="contain">

@@ -1,28 +1,15 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useQuery } from "../../hooks/useQuery";
 import { courseService } from "../../services/course";
 import CourseCard, { CardLoading } from "../CourseCard";
 import Skeleton from "../Skeleton";
 
 
 export default function ListCourse() {
+  const {data: courses, loading} = useQuery(() => courseService.getCourse("?limit=6"))
 
-const [loading, setLoading] = useState(true);
-
-
-  const [courses, setCourses] = useState([]);
-  useEffect(() => {
-    setLoading(true) 
-    courseService.getCourse().then((data) => {
-      setCourses(data?.data);
-      
-    })
-    .finally(() => {
-      setLoading(false)
-    });
-  }, []);
-  console.log(courses);
-
+console.log(courses)
 
   return (
     <main className="homepage" id="main">
@@ -44,7 +31,7 @@ const [loading, setLoading] = useState(true);
           loading ? Array.from(Array(6)).map((_,i ) =>
             <CardLoading   className="col-md-4" style={{marginBottom: 20}} key={i}><Skeleton width="100%" height={460}/></CardLoading>
           ) :
-           courses.map((e) => (
+           courses.data.map((e) => (
               <CourseCard key={e.id} {...e} />
             )) }
           </div>
