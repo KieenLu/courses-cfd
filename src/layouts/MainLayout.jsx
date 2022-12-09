@@ -4,10 +4,10 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 
-export default function MainLayout(props) {
+export default function MainLayout() {
   return (
     <>
-      <Header {...props} />
+      <Header />
       <Nav />
       <Outlet />
       <Footer />

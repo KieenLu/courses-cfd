@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, Navigate, NavLink, Outlet } from "react-router-dom";
+import { useAuth } from "../components/AuthContext";
+import { avatarDefault } from "../config";
 import { PATH } from "../config/path";
 import { useScrollTop } from "../hooks/useScrollTop";
 
 export default function ProfileLayout() {
+  const { user } = useAuth();
   useScrollTop();
   return (
     <main className="profile" id="main">
@@ -11,10 +14,10 @@ export default function ProfileLayout() {
         <div className="top-info">
           <div className="avatar">
             {/* <span class="text">H</span> */}
-            <img src="/img/avt.png" alt="" />
+            <img src={user.avatar ? user.avatar : avatarDefault} alt="" />
             <div className="camera" />
           </div>
-          <div className="name">Vương Đặng</div>
+          <div className="name">{user.name}</div>
           <p className="des">Thành viên của team Spacedev1-OFFLINE</p>
         </div>
         <div className="container">

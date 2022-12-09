@@ -14,9 +14,10 @@ import SignupPage from "../pages/signupPage";
 import TeamPage from "../pages/teamPage";
 import { courseRouters } from "./course";
 import { profileRouters } from "./profile";
-export const routers = (user, login, logout) => [
+
+export const routers = [
   {
-    element: <MainLayout user={user} logout={logout} />,
+    element: <MainLayout />,
     children: [
       {
         element: <HomePage />,
@@ -37,10 +38,10 @@ export const routers = (user, login, logout) => [
       },
 
       {
-        element: <AuthRouter user={user} redirect={PATH.profile.index} />,
+        element: <AuthRouter redirect={PATH.profile.index} />,
         children: [
           {
-            element: <SigninPage login={login} />,
+            element: <SigninPage />,
             path: PATH.signin,
           },
           {
@@ -66,7 +67,7 @@ export const routers = (user, login, logout) => [
         path: PATH.courseregister,
       },
       {},
-      profileRouters(user),
+      profileRouters(),
       {
         element: <Page404 />,
         path: "/*",

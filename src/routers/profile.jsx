@@ -1,3 +1,4 @@
+import { useAuth } from "../components/AuthContext";
 import PrivateRouter from "../components/PrivateRouter";
 import { PATH } from "../config/path";
 import ProfileLayout from "../layouts/ProfileLayout";
@@ -7,12 +8,12 @@ import Course from "../pages/profilePage/course";
 import Payment from "../pages/profilePage/payment";
 import Project from "../pages/profilePage/project";
 
-export const profileRouters = (user) => {
+export const profileRouters = () => {
   return {
-    element: <PrivateRouter user={user} redirect={PATH.signin} />,
+    element: <PrivateRouter redirect={PATH.signin} />,
     children: [
       {
-        element: <ProfileLayout user={user} />,
+        element: <ProfileLayout />,
         children: [
           {
             element: <Profile />,

@@ -21,8 +21,8 @@ export const useForm = (rules) => {
     return Object.keys(errorObject).length === 0;
   };
   const reset = () => {
-    setValues({})
-  }
+    setValues({});
+  };
   return {
     reset,
     values,

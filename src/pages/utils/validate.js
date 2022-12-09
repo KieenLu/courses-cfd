@@ -1,6 +1,8 @@
 const ERROR_MESSAGE = {
   required: "Vui lòng điền đầy đủ thông tin",
   regexp: "Vui lòng nhập đúng định dạng",
+  minMax: (min, max) => ` Xin vui lòng nhập từ ${min}-${max} ký tự`,
+  confirm: "Mật khẩu xác nhận không giống với mật khẩu hiện tại",
 };
 
 const REGEXP = {
@@ -32,6 +34,17 @@ export const validate = (rules, forms) => {
           errorObject[name] = rule.message || ERROR_MESSAGE.regexp;
         }
       }
+      if (rule.min || rule.max) {
+        if (forms[name]?.length < rule.min || forms[name]?.length > rule.max) {
+          errorObject[name] =
+            rule.message || ERROR_MESSAGE.minMax(rule.min, rule.max);
+        }
+      }
+      if (rule.confirm) {
+        if (forms[rule.confirm] !== forms[name]) {
+          errorObject[name] = rule.message || ERROR_MESSAGE.confirm;
+        }
+      }
     }
   }
   return errorObject;
@@ -43,4 +56,12 @@ export const required = (message) => ({
 export const regexp = (pattern, message) => ({
   regexp: pattern,
   message,
+});
+export const minMax = (min, max, message) => ({
+  min,
+  max,
+  message,
+});
+export const confirm = (field) => ({
+  confirm: field,
 });
