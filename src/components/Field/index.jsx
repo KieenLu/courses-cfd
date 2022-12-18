@@ -1,14 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const ErrorSpan = styled.span`
-  color: red;
-  position: absolute;
-  top: 100%;
-  left: 230px;
-  font-size: 0.875rem;
-  font-style: italic;
-`;
+import { ErrorSpan, FieldStyle } from "./style";
 
 export default function Field({
   label,
@@ -19,13 +10,13 @@ export default function Field({
   ...props
 }) {
   return (
-    <label style={{ position: "relative" }}>
+    <FieldStyle className="md-1:block">
       <p>
         {label}
         {required && <span>*</span>}
       </p>
       {renderInput ? renderInput?.(props) : <input {...props} type={type} />}
       {error && <ErrorSpan>{error}</ErrorSpan>}
-    </label>
+    </FieldStyle>
   );
 }

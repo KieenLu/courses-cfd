@@ -31,7 +31,7 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">đặng thuyền vương</div>
+                  <div className="name">Đặng Thuyền Vương</div>
                   <p className="title">Co-Founder &amp; Fullstack Developer</p>
                 </div>
               </div>
@@ -42,7 +42,7 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">đặng thuyền quân</div>
+                  <div className="name">Đặng Thuyền Vương</div>
                   <p className="title">Co-Founder &amp; Backend Developer</p>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">Diệp anh thy</div>
+                  <div className="name">Diệp Anh Thy</div>
                   <p className="title">Spacedev1-Offline</p>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">huỳnh tiến tài</div>
+                  <div className="name">Huỳnh Tiến Tài</div>
                   <p className="title">Spacedev1-Offline</p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">Ngô thành long</div>
+                  <div className="name">Ngô Thành Long</div>
                   <p className="title">Spacedev1-Offline</p>
                 </div>
               </div>
@@ -98,7 +98,18 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">trần anh tuấn</div>
+                  <div className="name">Trần Anh Tuấn</div>
+                  <p className="title">Spacedev1-Offline</p>
+                </div>
+              </div>
+            </div>
+            {/* <div className="item col-md-3 col-sm-4 col-xs-6">
+              <div className="wrap">
+                <div className="cover">
+                  <img src="img/avt.png" alt="" />
+                </div>
+                <div className="info">
+                  <div className="name">Ngô Thành Long</div>
                   <p className="title">Spacedev1-Offline</p>
                 </div>
               </div>
@@ -109,7 +120,7 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">ngô thành long</div>
+                  <div className="name">Nguyễn Thành Tùng</div>
                   <p className="title">Spacedev1-Offline</p>
                 </div>
               </div>
@@ -120,22 +131,11 @@ export default function TeamPage() {
                   <img src="img/avt.png" alt="" />
                 </div>
                 <div className="info">
-                  <div className="name">nguyễn thành tùng</div>
+                  <div className="name">Phạm Thành Trung</div>
                   <p className="title">Spacedev1-Offline</p>
                 </div>
               </div>
-            </div>
-            <div className="item col-md-3 col-sm-4 col-xs-6">
-              <div className="wrap">
-                <div className="cover">
-                  <img src="img/avt.png" alt="" />
-                </div>
-                <div className="info">
-                  <div className="name">phạm thành trung</div>
-                  <p className="title">Spacedev1-Offline</p>
-                </div>
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

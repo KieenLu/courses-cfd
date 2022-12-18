@@ -1,12 +1,15 @@
+import { useScrollTop } from "@/hooks/useScrollTop";
 import React from "react";
 import CourseCard, { CardLoading } from "../../components/CourseCard";
-import ListCourse from "../../components/ListCourse";
 import Skeleton from "../../components/Skeleton";
 import { useQuery } from "../../hooks/useQuery";
 import { courseService } from "../../services/course";
 
 export default function CourseListPage() {
-  const {data: courses, loading} = useQuery(() => courseService.getCourse(""))
+  useScrollTop();
+  const { data: courses, loading } = useQuery(() =>
+    courseService.getCourse("")
+  );
 
   return (
     <main className="homepage" id="main">
@@ -24,13 +27,17 @@ export default function CourseListPage() {
             <h2 className="main-title">OFFLINE</h2>
           </div>
           <div className="list row">
-          {
-          loading ? Array.from(Array(6)).map((_,i ) =>
-            <CardLoading   className="col-md-4" style={{marginBottom: 20}} key={i}><Skeleton width="100%" height={460}/></CardLoading>
-          ) :
-           courses.data.map((e) => (
-              <CourseCard key={e.id} {...e} />
-            )) }
+            {loading
+              ? Array.from(Array(6)).map((_, i) => (
+                  <CardLoading
+                    className="col-md-4"
+                    style={{ marginBottom: 20 }}
+                    key={i}
+                  >
+                    <Skeleton width="100%" height={460} />
+                  </CardLoading>
+                ))
+              : courses.data.map((e) => <CourseCard key={e.id} {...e} />)}
           </div>
         </div>
       </section>

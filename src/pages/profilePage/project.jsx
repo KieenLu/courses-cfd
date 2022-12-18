@@ -2,7 +2,6 @@ import React from "react";
 import { useScrollTop } from "../../hooks/useScrollTop";
 
 export default function Project() {
-  useScrollTop();
   return (
     <div className="tab3">
       <div className="row">
@@ -61,7 +60,7 @@ export default function Project() {
             src="/img/icon-upload.svg"
             alt=""
             style={{ marginRight: "10px" }}
-          />{" "}
+          />
           Tải lên
         </div>
       </div>

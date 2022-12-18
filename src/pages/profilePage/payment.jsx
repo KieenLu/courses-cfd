@@ -2,7 +2,6 @@ import React from "react";
 import { useScrollTop } from "../../hooks/useScrollTop";
 
 export default function Payment() {
-  useScrollTop();
   return (
     <div className="tab4">
       <div className="item itemhistory">

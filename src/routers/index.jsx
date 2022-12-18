@@ -2,6 +2,7 @@ import AuthRouter from "../components/AuthRouter";
 import { PATH } from "../config/path";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages";
+import CoinPage from "../pages/coinPage";
 import ContactPage from "../pages/contactPage";
 import FaqPage from "../pages/faqPage";
 import Page404 from "../pages/page404";
@@ -36,7 +37,10 @@ export const routers = [
         element: <FaqPage />,
         path: PATH.faq,
       },
-
+      // {
+      //   element: <ResetPasswordPage />,
+      //   path: PATH.resetpassword,
+      // },
       {
         element: <AuthRouter redirect={PATH.profile.index} />,
         children: [
@@ -71,6 +75,10 @@ export const routers = [
       {
         element: <Page404 />,
         path: "/*",
+      },
+      {
+        element: <CoinPage />,
+        path: "/coin",
       },
     ],
   },

@@ -15,13 +15,13 @@ export default function Footer() {
             </p>
             <p className="phone">(+84) 949 816 596</p>
             <div className="social">
-              <a href="#">
+              <a target="_blank" href="#">
                 <img src="/img/fb-icon.png" alt="" />
               </a>
-              <a href="#">
+              <a target="_blank" href="#">
                 <img src="/img/email-icon.png" alt="" />
               </a>
-              <a href="#">
+              <a target="_blank" href="#">
                 <img src="/img/skype-icon.png" alt="" />
               </a>
             </div>

@@ -1,27 +1,39 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../components/AuthContext";
-import Field from "../components/Field";
 import Input from "../components/Input";
-import { PATH } from "../config/path";
 import { useAsync } from "../hooks/useAsync";
 import { useForm } from "../hooks/useForm";
 import { minMax, regexp, required } from "./utils/validate";
 import Button from "../components/Button";
+import { useScrollTop } from "../hooks/useScrollTop";
+import { PATH } from "../config/path";
+import { RememberPassword } from "@/components/Checkbox";
+import Field from "@/components/Field";
+
 export default function SigninPage() {
+  useScrollTop();
   const { login } = useAuth();
   const form = useForm({
-    username: [required(), regexp("email")],
+    username: [
+      required(),
+      regexp("email", "Vui lòng nhập đúng định dạng Email"),
+    ],
     password: [required(), minMax(6, 32)],
   });
   const { loading, excute: loginService } = useAsync(login);
-  const navigate = useNavigate();
+  const onKeyUp = (ev) => {
+    if (form.validate() && ev.key === "Enter") {
+      loginService(form.values);
+    }
+  };
+
   const onSubmit = () => {
     if (form.validate()) {
       loginService(form.values);
-      // navigate(PATH.profile.index);
     }
   };
+
   return (
     <main className="auth" id="main">
       <div className="wrap">
@@ -31,6 +43,7 @@ export default function SigninPage() {
 
           <Input
             {...form.register("username")}
+            onKeyUp={onKeyUp}
             className="mb-5"
             style={{ marginBottom: 25 }}
             placeholder="Email/ Số điện thoại"
@@ -38,21 +51,12 @@ export default function SigninPage() {
           <Input
             {...form.register("password")}
             style={{ marginBottom: 25 }}
+            onKeyUp={onKeyUp}
             className="mb-5"
             placeholder="Mật khẩu"
             type="password"
           />
-          <div className="remember">
-            <label className="btn-remember">
-              <div>
-                <input type="checkbox" />
-              </div>
-              <p>Nhớ mật khẩu</p>
-            </label>
-            <a href="#" className="forget">
-              Quên mật khẩu?
-            </a>
-          </div>
+          <RememberPassword {...form.register("rememberpassword")} />
           <Button
             loading={loading}
             onClick={onSubmit}
@@ -60,11 +64,11 @@ export default function SigninPage() {
           >
             đăng nhập
           </Button>
-          <div className="text-register" style={{}}>
-            <span>Nếu bạn chưa có tài khoản?</span>{" "}
-            <a className="link" href="#">
+          <div className="text-register">
+            <span>Nếu bạn chưa có tài khoản? </span>
+            <Link to={PATH.signup} className="link">
               Đăng ký
-            </a>
+            </Link>
           </div>
         </div>
       </div>

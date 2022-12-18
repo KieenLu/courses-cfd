@@ -6,9 +6,12 @@ import { organizationService } from "../services/organization";
 import Button from "../components/Button";
 import { useAsync } from "../hooks/useAsync";
 import { message } from "antd";
+import Input from "@/components/Input";
+import { useScrollTop } from "@/hooks/useScrollTop";
+import { handleError } from "./utils/handleError";
 export default function ContactPage() {
   // const [loading, setLoading] = useState(false)
-
+  useScrollTop();
   const { excute, loading } = useAsync(organizationService.contact);
 
   const [isSuccess, setIsSuccess] = useState(false);
@@ -37,10 +40,10 @@ export default function ContactPage() {
           );
           setIsSuccess(true);
         }
-      } else {
-        console.log("non thanh cong");
       }
-    } catch (err) {}
+    } catch (err) {
+      handleError(err);
+    }
   };
 
   return (
@@ -48,7 +51,6 @@ export default function ContactPage() {
       <section className="section-1 wrap container">
         {isSuccess ? (
           <>
-            {" "}
             <h2 className="main-title">Liên hệ thành công</h2>
             <p className="top-des">
               Bạn đã liên hệ thành với <strong>Spacedev</strong>. Chúng tôi sẽ

@@ -19,7 +19,7 @@ export const PATH = {
   payment: "/payment",
   courseregister: "/register/:slug-id:id",
   faq: "/faq",
-  resetpassword: "/resetpassword",
+  resetpassword: "/reset-password",
   signin: "/signin",
   contact: "/contact",
   signup: "/signup",

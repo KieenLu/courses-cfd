@@ -38,7 +38,7 @@ export default function CoinPage() {
                 <strong>Sử dụng COIN:</strong>
               </h3>
               <p>
-                - Giảm giá cho những khoá học mới khi đăng ký khoá học tại{" "}
+                - Giảm giá cho những khoá học mới khi đăng ký khoá học tại
                 <a href="http://spacedev.vn/">website Spacedev</a>.
               </p>
               <p>

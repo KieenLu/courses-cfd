@@ -1,15 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { PATH } from "../../config/path";
+import { useAuth } from "../AuthContext";
 import "/src/assets/style/customcss.css";
 
 export default function Nav() {
+  const { user } = useAuth();
   return (
     <nav className="nav">
       <ul>
-        <li>
-          <NavLink to={PATH.profile.index}>Hồ sơ của bạn</NavLink>
-        </li>
+        {user ? (
+          <li>
+            <NavLink to={PATH.profile.index}>Hồ sơ của bạn</NavLink>
+          </li>
+        ) : (
+          <li>
+            <NavLink to={PATH.signin}>Đăng nhập/Đăng ký</NavLink>
+          </li>
+        )}
+
         <li>
           <NavLink to={PATH.home}>Trang chủ</NavLink>
         </li>

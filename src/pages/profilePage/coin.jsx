@@ -2,7 +2,6 @@ import React from "react";
 import { useScrollTop } from "../../hooks/useScrollTop";
 
 export default function Coin() {
-  useScrollTop();
   return (
     <div className="tab5 cointab" style={{ display: "block" }}>
       <div className="coininfo">
@@ -12,7 +11,7 @@ export default function Coin() {
           </h3>
           <div className="coininfo__box-ct">
             <div>
-              <img src="/img/Spacedev-coin.png" alt="" />
+              {/* <img src="/img/Spacedev-coin.png" alt="" /> */}
               <p>
                 Bạn có <strong>300</strong> COIN
               </p>

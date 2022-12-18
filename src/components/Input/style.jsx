@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const InputStyle = styled.div`
@@ -13,7 +12,7 @@ export const InputStyle = styled.div`
 export const ErrorText = styled.div`
   color: red;
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   font-size: 0.875rem;
   font-style: italic;
 `;

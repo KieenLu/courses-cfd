@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { useQuery } from "../../hooks/useQuery";
 import { courseService } from "../../services/course";
 import CourseCard, { CardLoading } from "../CourseCard";
