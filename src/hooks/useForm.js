@@ -58,10 +58,10 @@ export const useForm = (rules, initialValue = {}) => {
             _values
           );
 
-          setError({ ...errors, [name]: error[name] || "" });
+          setError((prev) => ({ ...prev, [name]: error[name] || "" }));
         }
 
-        setValues(_values);
+        setValues((prev) => ({ ...prev, [name]: ev.target.value }));
       },
     };
   };

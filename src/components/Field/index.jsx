@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { ErrorSpan, FieldStyle } from "./style";
 
-export default function Field({
+function Field({
   label,
   required,
   renderInput,
@@ -20,3 +20,6 @@ export default function Field({
     </FieldStyle>
   );
 }
+export default memo(Field, (oldProps, newProps) => {
+  return oldProps.value === newProps.value && oldProps.error === newProps.error;
+});

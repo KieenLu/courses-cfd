@@ -8,8 +8,8 @@ import { message } from "antd";
 import { useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import classNames from "classnames";
-import Input from "@/components/Input";
 import { handleError } from "./utils/handleError";
+import { Input } from "@/components/Input";
 
 export default function SignupPage() {
   const { excute: signup, loading } = useAsync(userService.signup);

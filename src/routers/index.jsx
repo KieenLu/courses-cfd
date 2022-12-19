@@ -1,20 +1,21 @@
+import { lazy } from "react";
 import AuthRouter from "../components/AuthRouter";
 import { PATH } from "../config/path";
-import MainLayout from "../layouts/MainLayout";
-import HomePage from "../pages";
-import CoinPage from "../pages/coinPage";
-import ContactPage from "../pages/contactPage";
-import FaqPage from "../pages/faqPage";
-import Page404 from "../pages/page404";
-import PaymentPage from "../pages/paymentpage";
-import ProjectPage from "../pages/projectPage";
-import RegisterPage from "../pages/registerPage/[slug]-id[id]";
-import ResetPasswordPage from "../pages/resetPasswordPage";
-import SigninPage from "../pages/signinPage";
-import SignupPage from "../pages/signupPage";
-import TeamPage from "../pages/teamPage";
 import { courseRouters } from "./course";
 import { profileRouters } from "./profile";
+const MainLayout = lazy(() => import("../layouts/MainLayout"));
+const HomePage = lazy(() => import("../pages"));
+const CoinPage = lazy(() => import("../pages/coinPage"));
+const ContactPage = lazy(() => import("../pages/contactPage"));
+const FaqPage = lazy(() => import("../pages/faqPage"));
+const Page404 = lazy(() => import("../pages/page404"));
+const PaymentPage = lazy(() => import("../pages/paymentpage"));
+const ProjectPage = lazy(() => import("../pages/projectPage"));
+const RegisterPage = lazy(() => import("../pages/registerPage/[slug]-id[id]"));
+const ResetPasswordPage = lazy(() => import("../pages/resetPasswordPage"));
+const SignupPage = lazy(() => import("../pages/signupPage"));
+const TeamPage = lazy(() => import("../pages/teamPage"));
+const SigninPage = lazy(() => import("../pages/signinPage"));
 
 export const routers = [
   {
@@ -37,10 +38,6 @@ export const routers = [
         element: <FaqPage />,
         path: PATH.faq,
       },
-      // {
-      //   element: <ResetPasswordPage />,
-      //   path: PATH.resetpassword,
-      // },
       {
         element: <AuthRouter redirect={PATH.profile.index} />,
         children: [
