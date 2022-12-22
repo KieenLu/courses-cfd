@@ -4,7 +4,7 @@ import { useAuth } from "../components/AuthContext";
 import { Input } from "../components/Input";
 import { useAsync } from "../hooks/useAsync";
 import { useForm } from "../hooks/useForm";
-import { minMax, regexp, required } from "./utils/validate";
+import { minMax, regexp, required } from "../utils/validate";
 import Button from "../components/Button";
 import { useScrollTop } from "../hooks/useScrollTop";
 import { PATH } from "../config/path";

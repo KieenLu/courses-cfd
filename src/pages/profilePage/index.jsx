@@ -8,8 +8,8 @@ import { message } from "antd";
 import React from "react";
 
 import { useScrollTop } from "../../hooks/useScrollTop";
-import { handleError } from "../utils/handleError";
-import { regexp, required } from "../utils/validate";
+import { handleError } from "../../utils/handleError";
+import { regexp, required } from "../../utils/validate";
 
 export default function Profile() {
   useScrollTop();

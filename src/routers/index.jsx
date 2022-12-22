@@ -9,7 +9,7 @@ const CoinPage = lazy(() => import("../pages/coinPage"));
 const ContactPage = lazy(() => import("../pages/contactPage"));
 const FaqPage = lazy(() => import("../pages/faqPage"));
 const Page404 = lazy(() => import("../pages/page404"));
-const PaymentPage = lazy(() => import("../pages/paymentpage"));
+const PaymentPage = lazy(() => import("../pages/paymentPage"));
 const ProjectPage = lazy(() => import("../pages/projectPage"));
 const RegisterPage = lazy(() => import("../pages/registerPage/[slug]-id[id]"));
 const ResetPasswordPage = lazy(() => import("../pages/resetPasswordPage"));
@@ -67,7 +67,6 @@ export const routers = [
         element: <RegisterPage />,
         path: PATH.courseregister,
       },
-      {},
       profileRouters(),
       {
         element: <Page404 />,

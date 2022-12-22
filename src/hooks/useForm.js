@@ -32,7 +32,7 @@
 //   };
 // };
 
-import { validate } from "@/pages/utils/validate";
+import { validate } from "@/utils/validate";
 import { useState } from "react";
 
 /**

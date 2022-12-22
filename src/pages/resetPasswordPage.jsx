@@ -7,9 +7,9 @@ import { message, Tree } from "antd";
 import React from "react";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { handleError } from "./utils/handleError";
-import { setToken } from "./utils/token";
-import { confirm, minMax, regexp, required } from "./utils/validate";
+import { handleError } from "../utils/handleError";
+import { setToken } from "../utils/token";
+import { confirm, minMax, regexp, required } from "../utils/validate";
 import { Input } from "@/components/Input";
 
 export default function ResetPasswordPage() {
@@ -66,7 +66,7 @@ export default function ResetPasswordPage() {
         <div className="wrap">
           <h2 className="title">Xác nhận mật khẩu</h2>
           <Input
-            claInputssName="mb-5"
+            className="mb-5"
             type="password"
             placeholder="Mật khẩu"
             {...resetPasswordForm.register("password")}

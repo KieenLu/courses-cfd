@@ -9,10 +9,10 @@ import {
   getUser,
   setToken,
   setUser,
-} from "../../pages/utils/token";
+} from "../../utils/token";
 import { authService } from "../../services/auth";
 import { userService } from "../../services/user";
-import { handleError } from "@/pages/utils/handleError";
+import { handleError } from "@/utils/handleError";
 import { useMemo } from "react";
 import { useCallback } from "react";
 

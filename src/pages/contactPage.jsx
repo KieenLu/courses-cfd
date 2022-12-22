@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Field from "../components/Field";
-import { required, regexp } from "./utils/validate";
+import { required, regexp } from "../utils/validate";
 import { useForm } from "../hooks/useForm";
 import { organizationService } from "../services/organization";
 import Button from "../components/Button";
 import { useAsync } from "../hooks/useAsync";
 import { message } from "antd";
 import { useScrollTop } from "@/hooks/useScrollTop";
-import { handleError } from "./utils/handleError";
+import { handleError } from "../utils/handleError";
 export default function ContactPage() {
   useScrollTop();
   const { excute, loading } = useAsync(organizationService.contact);

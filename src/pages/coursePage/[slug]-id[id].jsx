@@ -13,7 +13,7 @@ import { useQuery } from "../../hooks/useQuery";
 import { useScrollTop } from "../../hooks/useScrollTop";
 import { courseService } from "../../services/course";
 import Page404 from "../page404";
-import { currency } from "../utils/currency";
+import { currency } from "../../utils/currency";
 
 export default function CouseDetailPage() {
   const [isOpenVideo, setIsOpenVideo] = useState(false);

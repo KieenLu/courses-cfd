@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import Field from "../../components/Field";
-import { required } from "../utils/validate";
-import { regexp } from "../utils/validate";
+import { required } from "../../utils/validate";
+import { regexp } from "../../utils/validate";
 import { useForm } from "../../hooks/useForm";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { courseService } from "../../services/course";
 import { useScrollTop } from "../../hooks/useScrollTop";
 import { PATH } from "../../config/path";
-import { currency } from "../utils/currency";
+import { currency } from "../../utils/currency";
 import { useQuery } from "../../hooks/useQuery";
 import Page404 from "../page404";
 import { useAuth } from "../../components/AuthContext";
