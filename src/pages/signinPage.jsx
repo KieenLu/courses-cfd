@@ -9,6 +9,7 @@ import Button from "../components/Button";
 import { useScrollTop } from "../hooks/useScrollTop";
 import { PATH } from "../config/path";
 import { RememberPassword } from "@/components/Checkbox";
+import Field from "@/components/Field";
 
 export default function SigninPage() {
   useScrollTop();
@@ -27,9 +28,10 @@ export default function SigninPage() {
     }
   };
 
-  const onSubmit = () => {
+  const onSubmit = async (ev) => {
+    ev.preventDefault();
     if (form.validate()) {
-      loginService(form.values);
+      await loginService(form.values);
     }
   };
 
@@ -37,7 +39,7 @@ export default function SigninPage() {
     <main className="auth" id="main">
       <div className="wrap">
         {/* login-form */}
-        <div className="ct_login">
+        <form className="ct_login" onSubmit={onSubmit}>
           <h2 className="title">Đăng nhập</h2>
 
           <Input
@@ -58,7 +60,7 @@ export default function SigninPage() {
           <RememberPassword {...form.register("rememberpassword")} />
           <Button
             loading={loading}
-            onClick={onSubmit}
+            // onClick={onSubmit}
             className="btn rect main btn-login"
           >
             đăng nhập
@@ -69,7 +71,7 @@ export default function SigninPage() {
               Đăng ký
             </Link>
           </div>
-        </div>
+        </form>
       </div>
     </main>
   );
