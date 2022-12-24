@@ -15,8 +15,10 @@ function Field({
         {label}
         {required && <span>*</span>}
       </p>
-      {renderInput ? renderInput?.(props) : <input {...props} type={type} />}
-      {error && <ErrorSpan>{error}</ErrorSpan>}
+      <div className="flex flex-col w-full">
+        {renderInput ? renderInput?.(props) : <input {...props} type={type} />}
+        {error && <ErrorSpan>{error}</ErrorSpan>}
+      </div>
     </FieldStyle>
   );
 }
