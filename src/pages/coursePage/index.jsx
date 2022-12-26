@@ -2,12 +2,12 @@ import { useScrollTop } from "@/hooks/useScrollTop";
 import React from "react";
 import CourseCard, { CardLoading } from "../../components/CourseCard";
 import Skeleton from "../../components/Skeleton";
-import { useQuery } from "../../hooks/useQuery";
+import { useFetch } from "../../hooks/useFetch";
 import { courseService } from "../../services/course";
 
 export default function CourseListPage() {
   useScrollTop();
-  const { data: courses, loading } = useQuery(() =>
+  const { data: courses, loading } = useFetch(() =>
     courseService.getCourse("")
   );
 

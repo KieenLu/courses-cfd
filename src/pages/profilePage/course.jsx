@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "../../hooks/useQuery";
+import { useFetch } from "../../hooks/useFetch";
 import Skeleton from "../../components/Skeleton";
 import moment from "moment";
 import { courseService } from "../../services/course";
@@ -7,7 +7,7 @@ import { generatePath, Link } from "react-router-dom";
 import { PATH } from "../../config/path";
 
 export default function MyCourse() {
-  const { data: courses, loading } = useQuery(() => courseService.myCourse());
+  const { data: courses, loading } = useFetch(() => courseService.myCourse());
 
   return (
     <div className="tab2">

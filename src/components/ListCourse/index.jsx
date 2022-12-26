@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useQuery } from "../../hooks/useQuery";
+import { useFetch } from "../../hooks/useFetch";
 import { courseService } from "../../services/course";
 import CourseCard, { CardLoading } from "../CourseCard";
 import Skeleton from "../Skeleton";
 
 export default function ListCourse() {
-  const { data: courses, loading } = useQuery(() =>
+  const { data: courses, loading } = useFetch(() =>
     courseService.getCourse("?limit=6")
   );
 

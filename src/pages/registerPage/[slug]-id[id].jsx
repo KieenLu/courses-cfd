@@ -9,7 +9,7 @@ import { courseService } from "../../services/course";
 import { useScrollTop } from "../../hooks/useScrollTop";
 import { PATH } from "../../config/path";
 import { currency } from "../../utils/currency";
-import { useQuery } from "../../hooks/useQuery";
+import { useFetch } from "../../hooks/useFetch";
 import Page404 from "../page404";
 import { useAuth } from "../../components/AuthContext";
 import { Select } from "../../components/Select";
@@ -32,7 +32,7 @@ export default function RegisterPage() {
       navigate(PATH.signin, { state: { redirect: pathname } });
     }
   }, []);
-  const { data, loading } = useQuery(() => courseService.getCourseDetail(id));
+  const { data, loading } = useFetch(() => courseService.getCourseDetail(id));
 
   useScrollTop([id]);
 

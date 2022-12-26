@@ -9,7 +9,7 @@ import { Teacher } from "../../components/Teacher";
 import { VideoPopupModal } from "../../components/VideoPopupModal";
 
 import { PATH } from "../../config/path";
-import { useQuery } from "../../hooks/useQuery";
+import { useFetch } from "../../hooks/useFetch";
 import { useScrollTop } from "../../hooks/useScrollTop";
 import { courseService } from "../../services/course";
 import Page404 from "../page404";
@@ -19,12 +19,12 @@ export default function CouseDetailPage() {
   const [isOpenVideo, setIsOpenVideo] = useState(false);
   const { id } = useParams();
   useScrollTop([id]);
-  const { data, loading } = useQuery(
+  const { data, loading } = useFetch(
     () => courseService.getCourseDetail(id),
     [id]
   );
 
-  const { data: related } = useQuery(
+  const { data: related } = useFetch(
     () => courseService.getCourseRelative(id),
     [id]
   );
