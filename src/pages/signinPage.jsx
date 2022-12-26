@@ -29,7 +29,7 @@ export default function SigninPage() {
 
   const onSubmit = async (ev) => {
     ev.preventDefault();
-    if (form.validate()) {
+    if (form.validate() || onKeyUp()) {
       await loginService(form.values);
     }
   };
@@ -43,7 +43,6 @@ export default function SigninPage() {
 
           <Input
             {...form.register("username")}
-            onKeyUp={onKeyUp}
             className="mb-5"
             style={{ marginBottom: 25 }}
             placeholder="Email/ Số điện thoại"
@@ -51,7 +50,6 @@ export default function SigninPage() {
           <Input
             {...form.register("password")}
             style={{ marginBottom: 25 }}
-            onKeyUp={onKeyUp}
             className="mb-5"
             placeholder="Mật khẩu"
             type="password"

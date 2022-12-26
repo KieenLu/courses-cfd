@@ -1,6 +1,6 @@
 import moment from "moment/moment";
-import React, { useState } from "react";
-import { generatePath, Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link, generatePath, useParams } from "react-router-dom";
 import { Accordion } from "../../components/Accordion";
 import { AspectRatio } from "../../components/AspectRatio";
 import CourseCard from "../../components/CourseCard";
@@ -8,26 +8,31 @@ import Skeleton from "../../components/Skeleton";
 import { Teacher } from "../../components/Teacher";
 import { VideoPopupModal } from "../../components/VideoPopupModal";
 
+import { useQuery } from "@/hooks/useQuery";
 import { PATH } from "../../config/path";
-import { useFetch } from "../../hooks/useFetch";
 import { useScrollTop } from "../../hooks/useScrollTop";
 import { courseService } from "../../services/course";
-import Page404 from "../page404";
 import { currency } from "../../utils/currency";
+import Page404 from "../page404";
+import { ONE_HOUR } from "@/config";
 
 export default function CouseDetailPage() {
   const [isOpenVideo, setIsOpenVideo] = useState(false);
   const { id } = useParams();
   useScrollTop([id]);
-  const { data, loading } = useFetch(
-    () => courseService.getCourseDetail(id),
-    [id]
-  );
 
-  const { data: related } = useFetch(
-    () => courseService.getCourseRelative(id),
-    [id]
-  );
+  const { data: { data: detail = [] } = {}, loading } = useQuery({
+    queryFn: () => courseService.getCourseDetail(id),
+    dependencyList: [id],
+    queryKey: `courses-${id}`,
+    cacheTime: ONE_HOUR,
+  });
+
+  const { data: { data: related } = {} } = useQuery({
+    queryFn: () => courseService.getCourseRelative(id),
+    cacheTime: ONE_HOUR,
+    queryKey: `courses-related-${id}`,
+  });
 
   if (loading)
     return (
@@ -55,7 +60,7 @@ export default function CouseDetailPage() {
         </section>
       </main>
     );
-  const { data: detail } = data;
+
   if (!detail) return <Page404 />;
   const registerPath = generatePath(PATH.courseregister, {
     slug: detail.slug,
@@ -193,8 +198,7 @@ export default function CouseDetailPage() {
             <h2 className="main-title">Liên quan</h2>
           </div>
           <div className="list row">
-            {related &&
-              related?.data.map((e) => <CourseCard key={e.id} {...e} />)}
+            {related && related?.map((e) => <CourseCard key={e.id} {...e} />)}
           </div>
         </div>
       </section>

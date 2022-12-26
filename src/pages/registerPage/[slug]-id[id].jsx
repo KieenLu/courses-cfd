@@ -1,23 +1,20 @@
-import React from "react";
-import { useState } from "react";
-import Field from "../../components/Field";
-import { required } from "../../utils/validate";
-import { regexp } from "../../utils/validate";
-import { useForm } from "../../hooks/useForm";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { courseService } from "../../services/course";
-import { useScrollTop } from "../../hooks/useScrollTop";
-import { PATH } from "../../config/path";
-import { currency } from "../../utils/currency";
-import { useFetch } from "../../hooks/useFetch";
-import Page404 from "../page404";
-import { useAuth } from "../../components/AuthContext";
-import { Select } from "../../components/Select";
-import { Checkbox } from "../../components/Checkbox";
-import { useEffect } from "react";
+import Skeleton from "@/components/Skeleton";
+import { useQuery } from "@/hooks/useQuery";
 import { message } from "antd";
 import moment from "moment";
-import Skeleton from "@/components/Skeleton";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../components/AuthContext";
+import { Checkbox } from "../../components/Checkbox";
+import Field from "../../components/Field";
+import { Select } from "../../components/Select";
+import { PATH } from "../../config/path";
+import { useForm } from "../../hooks/useForm";
+import { useScrollTop } from "../../hooks/useScrollTop";
+import { courseService } from "../../services/course";
+import { currency } from "../../utils/currency";
+import { regexp, required } from "../../utils/validate";
+import Page404 from "../page404";
 
 export default function RegisterPage() {
   const { id } = useParams();
@@ -32,7 +29,11 @@ export default function RegisterPage() {
       navigate(PATH.signin, { state: { redirect: pathname } });
     }
   }, []);
-  const { data, loading } = useFetch(() => courseService.getCourseDetail(id));
+
+  const { data: { data: detail = [] } = {}, loading } = useQuery({
+    queryFn: () => courseService.getCourseDetail(id),
+    queryKey: `courses-register-${id}`,
+  });
 
   useScrollTop([id]);
 
@@ -129,7 +130,7 @@ export default function RegisterPage() {
         </section>
       </main>
     );
-  let { data: detail } = data;
+  // let { data: detail } = data;
   if (!detail) return <Page404 />;
   return (
     <main className="register-course" id="main">

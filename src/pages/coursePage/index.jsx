@@ -1,16 +1,18 @@
+import { useQuery } from "@/hooks/useQuery";
 import { useScrollTop } from "@/hooks/useScrollTop";
-import React from "react";
 import CourseCard, { CardLoading } from "../../components/CourseCard";
 import Skeleton from "../../components/Skeleton";
-import { useFetch } from "../../hooks/useFetch";
 import { courseService } from "../../services/course";
+import { ONE_HOUR } from "@/config";
 
 export default function CourseListPage() {
   useScrollTop();
-  const { data: courses, loading } = useFetch(() =>
-    courseService.getCourse("")
-  );
 
+  const { data: courses, loading } = useQuery({
+    queryFn: () => courseService.getCourse(""),
+    queryKey: "courses-full",
+    cacheTime: ONE_HOUR,
+  });
   return (
     <main className="homepage" id="main">
       <section className="section-1">

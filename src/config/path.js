@@ -1,5 +1,5 @@
 const PROFILE_PATH = "/profile";
-const COURSE_PATH = "/courselist";
+const COURSE_PATH = "/course-list";
 
 export const PATH = {
   home: "/",

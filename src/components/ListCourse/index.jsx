@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { useFetch } from "../../hooks/useFetch";
+import { ONE_HOUR } from "@/config";
+import { useQuery } from "@/hooks/useQuery";
 import { courseService } from "../../services/course";
 import CourseCard, { CardLoading } from "../CourseCard";
 import Skeleton from "../Skeleton";
 
 export default function ListCourse() {
-  const { data: courses, loading } = useFetch(() =>
-    courseService.getCourse("?limit=6")
-  );
-
+  const { data: courses, loading } = useQuery({
+    queryFn: () => courseService.getCourse("?limit=6"),
+    queryKey: "courses-home",
+    cacheTime: ONE_HOUR,
+  });
   return (
     <section className="section-1">
       <div className="container">

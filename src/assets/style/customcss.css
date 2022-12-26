@@ -2,3 +2,112 @@
   background: #00afab;
   color: white;
 }
+/*
+  CSS perpetual motion machine!
+  An experiment by @mieky.
+
+  - drop the box at top right
+  - flip the whole thing 90 degrees counter-clockwise
+  - repeat
+
+  Feel free to use in any way you see fit.
+  (https://gist.github.com/mieky/3c9b6c9215750371c41f)
+
+  See also @jaytauron's cool fork:
+  https://codepen.io/jaytauron/pen/zxzRzp
+*/
+
+.animation-loading {
+  background-color: #333;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+
+  /* Rotate without tweening, 90 degrees CCW every second */
+  animation: rotate 4s steps(4) infinite;
+  -webkit-animation: rotate 4s steps(4) infinite;
+}
+
+.box {
+  position: absolute;
+  background-color: white;
+}
+
+/* This one stays put */
+.box1 {
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+}
+
+/* This one drops down */
+.box2 {
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+
+  animation-name: drop;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name: drop;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: cubic-bezier;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes drop {
+  0% {
+    top: 0%;
+    left: 50%;
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+}
+
+@-webkit-keyframes drop {
+  0% {
+    top: 0%;
+    left: 50%;
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+  }
+}
